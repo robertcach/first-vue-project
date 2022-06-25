@@ -12,7 +12,7 @@
       </div>
     </div> -->
 
-    <div v-if="products && products.length">
+    <div v-if="products && products.length" class="products">
       <!-- Child component with props -->
       <ProductCard
         v-for="(product, index) in products"
@@ -63,5 +63,11 @@ h1 {
 
 h2 {
   font-size: 40px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 </style>
