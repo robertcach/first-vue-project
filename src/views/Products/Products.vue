@@ -2,23 +2,39 @@
   <div>
     <h1>This is the "Products" page</h1>
     <h2>Content form props: {{ message }}</h2>
-    <!-- Renderizado condicional -->
-    <div v-if="products && products.length">
-      <!-- Recorrer un array (como un .map) -->
-      <div v-for="product in products" :key="product.id">
+
+    <!-- Conditional rendering -->
+    <!-- <div v-if="products && products.length"> -->
+    <!-- Iterate an array (like a .map) -->
+    <!--       <div v-for="product in products" :key="product.id">
         <p>{{ product.title }}</p>
         <p>{{ product.price }}</p>
       </div>
+    </div> -->
+
+    <div v-if="products && products.length">
+      <!-- Child component with props -->
+      <ProductCard
+        v-for="(product, index) in products"
+        :key="index"
+        :title="product.title"
+        :image="product.image"
+      >
+      </ProductCard>
     </div>
 
+    <!-- button calls a method to update counter -->
     <button @click="increaseCounter">Add counter</button>
     <p>{{ counter }}</p>
   </div>
 </template>
 
 <script>
+import ProductCard from "@/components/ProductCard/ProductCard";
+
 export default {
   name: "Products",
+  components: { ProductCard }, // child component
   data: () => ({
     // Props
     message: "Hola",
@@ -30,7 +46,7 @@ export default {
     // Simple GET request using fetch
     fetch("https://fakestoreapi.com/products")
       .then(res => res.json())
-      .then(products => (this.products = products)); // actualiza estado con el array de productos
+      .then(products => (this.products = products.slice(0, 5))); // actualiza estado con el array de productos
   },
   methods: {
     increaseCounter() {
