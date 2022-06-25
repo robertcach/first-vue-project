@@ -1,3 +1,5 @@
+// Carpetas donde no tiene que observar que hay errores
+
 /build/
 /config/
 /dist/
