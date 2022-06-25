@@ -5,7 +5,10 @@
     <!-- Renderizado condicional -->
     <div v-if="products && products.length">
       <!-- Recorrer un array (como un .map) -->
-      <p v-for="product in products" :key="product.id">{{ product.title }}</p>
+      <div v-for="product in products" :key="product.id">
+        <p>{{ product.title }}</p>
+        <p>{{ product.price }}</p>
+      </div>
     </div>
 
     <button @click="increaseCounter">Add counter</button>
@@ -22,6 +25,7 @@ export default {
     products: [],
     counter: 0
   }),
+  // Mehotd that will be executed after creating the component for render.
   created() {
     // Simple GET request using fetch
     fetch("https://fakestoreapi.com/products")
