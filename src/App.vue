@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
     <Menu />
     <router-view />
     <!-- Inserta diferentes vistas en función de las rutas -->
@@ -16,7 +15,7 @@ export default {
 };
 </script>
 
-<!-- <style lang="scss" scoped>
+<style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,4 +24,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-</style> -->
+</style>

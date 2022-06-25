@@ -11,8 +11,14 @@ export default {
 };
 </script>
 
-<!-- <style lang="scss" scoped>
+<style>
 nav {
-  background-color: red;
+  background-color: black;
+  padding: 5px 0;
 }
-</style> -->
+
+a {
+  color: white;
+  text-decoration: none;
+}
+</style>
